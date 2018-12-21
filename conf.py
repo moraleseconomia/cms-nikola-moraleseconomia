@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
 import time
@@ -17,14 +17,14 @@ import time
 
 
 # Data about this site
-BLOG_AUTHOR = "Deybi Antonio Morales León"  # (translatable)
-BLOG_TITLE = "moraleseconomia"  # (translatable)
+BLOG_AUTHOR = "Deybi Morales León"  # (translatable)
+BLOG_TITLE = "Economia"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "https://www.deybi.com/"
+SITE_URL = "https://moraleseconomia.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "https://www.deybi.com/"
+# BASE_URL = "https://moraleseconomia.github.io/"
 BLOG_EMAIL = "morales.economia@gmail.com"
 BLOG_DESCRIPTION = "Una página especialmente para todo aquel que desee aprender un poco del Análisis de Datos sin haber tenido conocimiento previo de programacióna. Yo (Deybi Morales) agradezco la visita y solicito su apoyo recomendando esta página y haciendo click en los enlaces de publicidad. Soy economista originario de Nicaragua y esta página es mi hobby que demuestra mi pasión por las computadoras."  # (translatable)
 
@@ -135,14 +135,20 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archivo"),
+        ("/archive.html", "Blog"),
         ("/categories/index.html", "Etiquetas"),
-        ("/rss.xml", "Canal RSS"),
+ #       ("/rss.xml", "Canal RSS"),
+        ("/pages/portafolio.html", "Portafolio (no activa)"),
+        ("/pages/cursos.html", "Cursos (no activa)"),
+        ("/pages/superintendencia.html", "Superintendencia"),
+        ("/pages/bcn.html", "BCN (no activa)"),
+        ("/pages/about.html", "Acerca de mi"),
+#        ("/pages/cv.html", "CV (no activa)"),
     ),
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+THEME = "bootstrap3"  #"material-theme" #bootraps
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -183,15 +189,17 @@ THEME_COLOR = '#5670d4'
 #     )
 
 POSTS = (
+    ("posts/*.ipynb", "posts", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.md", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("pages/*.rst", "pages", "page.tmpl"),
-    ("pages/*.md", "pages", "page.tmpl"),
-    ("pages/*.txt", "pages", "page.tmpl"),
+    ("pages/*.rst",  "pages", "page.tmpl"),
+    ("pages/*.ipynb", "pages", "story.tmpl"),
+    ("pages/*.md",    "pages", "page.tmpl"),
+    ("pages/*.txt",  "pages", "page.tmpl"),
     ("pages/*.html", "pages", "page.tmpl"),
 )
 
@@ -899,7 +907,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True # INDEX_TEASERS = False
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -979,12 +987,12 @@ RSS_COPYRIGHT_FORMATS = CONTENT_FOOTER_FORMATS
 # systems.  The following comment systems are supported by Nikola:
 #   disqus, facebook, googleplus, intensedebate, isso, livefyre, muut
 # You can leave this option blank to disable comments.
-COMMENT_SYSTEM = ""
+COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = ""
+COMMENT_SYSTEM_ID = "moraleseconomia"
 
 # Create index.html for page folders?
 # WARNING: if a page would conflict with the index file (usually
@@ -1086,7 +1094,7 @@ PRETTY_URLS = False
 # IPYNB_CONFIG = {}
 # With the following example configuration you can use a custom jinja template
 # called `toggle.tpl` which has to be located in your site/blog main folder:
-# IPYNB_CONFIG = {'Exporter':{'template_file': 'toggle'}}
+#IPYNB_CONFIG = {'Exporter':{'template_file': 'toggle'}}
 
 # What Markdown extensions to enable?
 # You will also get gist, nikola and podcast because those are
@@ -1192,19 +1200,19 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # """ % SITE_URL
 #
 # If you prefer a Google search form, here's an example that should just work:
-# SEARCH_FORM = """
-# <!-- Google custom search -->
-# <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
-# <div class="form-group">
-# <input type="text" name="q" class="form-control" placeholder="Search">
-# </div>
-# <button type="submit" class="btn btn-primary">
-# 	<span class="glyphicon glyphicon-search"></span>
-# </button>
-# <input type="hidden" name="sitesearch" value="%s">
-# </form>
-# <!-- End of custom search -->
-# """ % SITE_URL
+SEARCH_FORM = """
+    <!-- Google custom search -->
+    <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+    <div class="form-group">
+    <input type="text" name="q" class="form-control" placeholder="Búsqueda">
+    </div>
+    <button type="submit" class="btn btn-primary">
+ 	<span class="glyphicon glyphicon-search"></span>
+    </button>
+    <input type="hidden" name="sitesearch" value="%s">
+    </form>
+    <!-- End of custom search -->
+""" % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
@@ -1226,6 +1234,32 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # EXTRA_HEAD_DATA = ""
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
+ANALYTICS = """
+        <!-- Start of StatCounter Code -->
+        <script type="text/javascript">
+        sc_project=186682663;
+        sc_invisible=1;
+        sc_partition=13;
+        sc_security="b91cd70a";
+        </script>
+        <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+        <noscript>
+            <div class="statcounter">
+            <a title="free hit counters" href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c14.statcounter.com/1436219/0/b91cd70a/1/" alt="free hit counters" ></a>
+            </div>
+        </noscript>
+        <!-- End of StatCounter Code -->
+        <!-- Start of Google Analytics -->
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+            </script>
+            <script type="text/javascript">
+            _uacct = "UA-131066507-1 ";
+            urchinTracker();
+            </script>
+        <!-- End of Google Analytics -->
+    """
+
+
 # (translatable)
 # BODY_END = ""
 
@@ -1353,7 +1387,11 @@ UNSLUGIFY_TITLES = True
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+     'header_color': 'danger',
+     'analytics': ANALYTICS,
+#     'search_form': SEARCH_FORM,
+}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
