@@ -1,14 +1,37 @@
 ---
-title: Superintendencia
+title: Reportes Financieros
 slug: superintendencia
-date: 2012-09-15 19:52:05 UTC
+date: 2019-09-07 19:52:05 UTC
 ---
 
-La nueva página de la Superintendencia de Bancos y de Otras Instituciones Financieras de Nicaragua es un laberinto sin salida cuando se trata de obtener los últimos informes financieros que publica acerca de la situación bancaria del país. Por eso considero un buen aporte de mi parte recolectarlos en esta página.
+
+Superintendencia de Bancos
+![undefined](http://www.superintendencia.gob.ni/sites/all/themes/stability/stability_siboif/logo.png)
 
 --------------------
 
-##### **Balance de Situación en Perspectiva**
+#### **Estados de Situación en Perspectiva**
+
+*Nota: Hasta la fecha la Superintendencia no ha publicado el Estado de Situación de Julio 2019*
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201906sfb.htm" target="_blank" rel="noopener noreferrer">-Junio 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201905sfb.htm" target="_blank" rel="noopener noreferrer">-Mayo 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201904sfb.htm" target="_blank" rel="noopener noreferrer">-Abril 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201903sfb.htm" target="_blank" rel="noopener noreferrer">-Marzo 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201902sfb.htm" target="_blank" rel="noopener noreferrer">-Febrero 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201901sfb.htm" target="_blank" rel="noopener noreferrer">-Enero 2019</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201812sfb.htm" target="_blank" rel="noopener noreferrer">-Diciembre 2018</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201811sfb.htm" target="_blank" rel="noopener noreferrer">-Noviembre 2018</a>
+
+<a href="http://www.siboif.gob.ni/sites/default/files/documentos/informes/bancos/balgp201810sfb.htm" target="_blank" rel="noopener noreferrer">-Octubre 2018</a>
+
 Septiembre 2018 - [Balance de Situación en Perspectiva](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/balgp201809sfb.htm)
 
 Agosto 2018 - [Balance de Situación en Perspectiva](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/balgp201808sfb.htm)
@@ -19,7 +42,7 @@ Junio 2018 - [Balance de Situación en Perspectiva](http://www.superintendencia.
 
 -----------------------
 
-##### **Estado de Resultado en Perspectiva**
+#### **Estado de Resultado en Perspectiva**
 Septiembre 2018 - [Estado de Resultado en Perspectiva](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/edorp201809sfb.htm)
 
 Agosto 2018 - [Estado de Resultado en Perspectiva](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/edorp201808sfb.htm)
@@ -30,7 +53,7 @@ Junio 2018 - [Estado de Resultado en Perspectiva](http://www.superintendencia.go
 
 ----------------------------
 
-##### **Indicadores Financieros Comparativos**
+#### **Indicadores Financieros Comparativos**
 Agosto 2018 - [Indicadores Financieros Comparativos](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/inf201808sfn.htm)
 
 Julio 2018 - [Indicadores Financieros Comparativos](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/inf201807sfn.htm)
@@ -39,25 +62,26 @@ Junio 2018 - [Indicadores Financieros Comparativos](http://www.superintendencia.
 
 -------------------------------
 
-##### **Cálculo de Adecuación de Capital (Trimestral)**
+#### **Cálculo de Adecuación de Capital (Trimestral)**
 Junio 2018 - [Cálculo de Adecuación de Capital](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/adec201806sfb.htm)
 
 --------------------------------
 
-##### **Estratificacion de los Depósitos por Monto y Modalidad (Trimestral)**
+#### **Estratificacion de los Depósitos por Monto y Modalidad (Trimestral)**
 Junio 2018 - [Estratificacion de los Depósitos por Monto y Modalidad](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/edmm201806sfb.htm)
 
 ---------------------------------
 
-##### **Estratificación de Depósitos por Monto y Subsistemas (Trimestral)**
+#### **Estratificación de Depósitos por Monto y Subsistemas (Trimestral)**
 Junio 2018 - [Estratificación de Depósitos por Monto y Subsistemas](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/edms201806sfb.htm)
 
 ---------------------------------
 
-##### **Estratificación de la Cartera Total por Monto y Plazo Contractual (Trimestral)**
+#### **Estratificación de la Cartera Total por Monto y Plazo Contractual (Trimestral)**
 Junio 2018 - [Estratificación de la Cartera Total por Monto y Plazo Contractual](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/ectmpc201806sfb.htm)
 
 ---------------------------------
 
-##### **Estratificación de la Cartera por Actividad y Monto (Trimestral)**
+#### **Estratificación de la Cartera por Actividad y Monto (Trimestral)**
 Junio 2018 - [Estratificación de la Cartera por Actividad y Monto](http://www.superintendencia.gob.ni/sites/default/files/documentos/informes/bancos/ecam201806sfb.htm)
+

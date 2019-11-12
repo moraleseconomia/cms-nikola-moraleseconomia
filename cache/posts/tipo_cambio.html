@@ -1,0 +1,143 @@
+<p>En este post vamos a trabajar los tipos de cambios que publica el Banco Central de Nicaragua.</p>
+<p>Por medio de Python podemos filtrar la fecha de tipo de cambios que deseamos. Algo que en excel sería mucho trabajo pero en Python con unas pocas lineas podemos hacerlo.</p>
+<p>¿Cómo obtenemos los tipos de cambios? Los encontramos en este enlace del banco central. <a href="https://www.bcn.gob.ni/estadisticas/mercados_cambiarios/tipo_cambio/cordoba_dolar/index.php">Enlace</a> . </p>
+<!-- TEASER_END -->
+
+<h3>Obteniendo los tipos de cambios.</h3>
+<p>Al dirigirnos a la dirección del enlace podemos seleccionar un rango de fechas para escoger los tipos de cambios que nos interesa.</p>
+<p><img alt="undefined" src="https://i.pinimg.com/originals/44/cc/18/44cc18fb9d8f4b2763cfe7081fd366e1.png"></p>
+<ul>
+<li>Seleccionando "Rango de fechas"</li>
+<li>Elegir fecha inicial y fecha final</li>
+<li>Descargar el archivo de Excel.</li>
+</ul>
+<p>En este ejercicio la fecha elegidas son 1 de Enero de 2000 y 31 de Octubre de 2019. El objetivo de este ejercicio es obtener el tipo de cambio de final de cada mes entre esas fechas seleccionadas.</p>
+<p>Una vez damos clic en el ícono de Excel, se descarga el archivo. Por motivo de elaborar este ejercicio lo he subido al servidor de driver y haremos el llamado desde python. Si el archivo ya no se encuentra disponible favor escribirme. <a href="https://drive.google.com/open?id=1yV8heEHIzzFwR-2nYbPZp4owNqmUin2z">Descargar</a> . Ha sido guardado manualmente con extensión .xlsx.</p>
+<p>El archivo abierto desde excel contiene lo que se ve en la imagen:</p>
+<p><img alt="undefined" src="https://i.pinimg.com/originals/9d/42/e6/9d42e630e1de626c7f8db4869b79e97e.png"></p>
+<p>Primera columna son las fechas y la segunda columna contiene los tipos de cambio. ¿Cuánto córdobas se pagaría por 1 dólar estadounidense?</p>
+<p>Podríamos aplicar filtro y seleccionar los finales de cada mes pero eso sería muy tedioso tachar fecha por fecha. También podriamos utilizar PowerQuery o quizás Tabla dinámica pero yo utilizaré la libreria Pandas de Python.</p>
+<p>Primero debemos importar pandas.</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre>
+
+
+<p>Proseguimos a extraer los datos del archivo de Excel</p>
+<pre class="code literal-block"><span></span><span class="n">excel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\JENNY\Google Drive\Datos\BLOG_PERSONAL\Archivo.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+              <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+</pre>
+
+
+<p>El argumento sheetname es para seleccionar la hoja en la que se encuentra los datos. En python todo comienza a contarse desde 0. Por eso la hoja 1 en excel sería la 0 en python.</p>
+<p>Habíamos visto que en el excel está el logo del banco central y varias filas que no nos interesa. Los datos empiezan desde la fila 7. Por tal razón skiprows es 6. }</p>
+<p>Haciendo uso de un excel.head(), podemos observar parte de los datos.</p>
+<pre class="code literal-block"><span></span><span class="n">Fecha</span>   <span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>
+<span class="mi">0</span>   <span class="mo">01</span><span class="o">-</span><span class="n">January</span><span class="o">-</span><span class="mo">00</span>   <span class="mf">12.3202</span>
+<span class="mi">1</span>   <span class="mo">02</span><span class="o">-</span><span class="n">January</span><span class="o">-</span><span class="mo">00</span>   <span class="mf">12.3222</span>
+<span class="mi">2</span>   <span class="mo">03</span><span class="o">-</span><span class="n">January</span><span class="o">-</span><span class="mo">00</span>   <span class="mf">12.3242</span>
+<span class="mi">3</span>   <span class="mo">04</span><span class="o">-</span><span class="n">January</span><span class="o">-</span><span class="mo">00</span>   <span class="mf">12.3261</span>
+<span class="mi">4</span>   <span class="mo">05</span><span class="o">-</span><span class="n">January</span><span class="o">-</span><span class="mo">00</span>   <span class="mf">12.3281</span>
+</pre>
+
+
+<p>Si queremos saber qué hemos importado, podemos usar un excel.info()</p>
+<pre class="code literal-block"><span></span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="s1">&#39;&gt;</span>
+<span class="n">RangeIndex</span><span class="p">:</span> <span class="mi">7192</span> <span class="n">entries</span><span class="p">,</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">7191</span>
+<span class="n">Data</span> <span class="n">columns</span> <span class="p">(</span><span class="n">total</span> <span class="mi">2</span> <span class="n">columns</span><span class="p">):</span>
+<span class="n">Fecha</span>               <span class="mi">7192</span> <span class="n">non</span><span class="o">-</span><span class="n">null</span> <span class="nb">object</span>
+<span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>    <span class="mi">7192</span> <span class="n">non</span><span class="o">-</span><span class="n">null</span> <span class="n">float64</span>
+<span class="n">dtypes</span><span class="p">:</span> <span class="n">float64</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">object</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">memory</span> <span class="n">usage</span><span class="p">:</span> <span class="mf">112.4</span><span class="o">+</span> <span class="n">KB</span>
+</pre>
+
+
+<p>Recibimos información de que tenemos 7192 filas de datos distribuídas en dos columnas.
+Además podemos notar que tenemos una Fecha pero como objeto. Pero los tipos de cambios están en formato correcto, es decir en float. Por último también observamos que no tenemos valores perdidos.</p>
+<p>Convirtamos la columna Fecha a verdaderamente fecha.</p>
+<pre class="code literal-block"><span></span><span class="n">excel</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excel</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span> 
+</pre>
+
+
+<p>Con la rutina anterior hemos convertido a fechas de python.</p>
+<p>Podemos confirmar aplicando info() de nuevo.</p>
+<pre class="code literal-block"><span></span><span class="n">excel</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="s1">&#39;&gt;</span>
+<span class="n">RangeIndex</span><span class="p">:</span> <span class="mi">7192</span> <span class="n">entries</span><span class="p">,</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">7191</span>
+<span class="n">Data</span> <span class="n">columns</span> <span class="p">(</span><span class="n">total</span> <span class="mi">2</span> <span class="n">columns</span><span class="p">):</span>
+<span class="n">Fecha</span>               <span class="mi">7192</span> <span class="n">non</span><span class="o">-</span><span class="n">null</span> <span class="n">datetime64</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+<span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>    <span class="mi">7192</span> <span class="n">non</span><span class="o">-</span><span class="n">null</span> <span class="n">float64</span>
+<span class="n">dtypes</span><span class="p">:</span> <span class="n">datetime64</span><span class="p">[</span><span class="n">ns</span><span class="p">](</span><span class="mi">1</span><span class="p">),</span> <span class="n">float64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">memory</span> <span class="n">usage</span><span class="p">:</span> <span class="mf">112.4</span> <span class="n">KB</span>
+</pre>
+
+
+<p>Ya vemos que Fecha es datetime, el formato de fecha de python.</p>
+<p>Muchas empresas solo necesitan el tipo de cambio del último día del mes. Por tal razón nos interesará dejar solo esos tipos de cambios y omitir el resto de días. Haremos un filtro automatizado para 7,192 datos.</p>
+<pre class="code literal-block"><span></span><span class="n">tipo_cambio</span> <span class="o">=</span> <span class="n">excel</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+</pre>
+
+
+<p>Notemos que key es la columna de fechas. Freq se refiere a agrupar en una frecuencia, en este caso mensual. Last() va presentar el último tipo de cambio de la agrupación. En muchas empresas pueden preferir un promedio mensual, para esto tendrían que sustituir last() por mean(). </p>
+<p>Veamos los datos con tail.</p>
+<pre class="code literal-block"><span></span><span class="n">tipo_cambio</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span>    <span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>
+<span class="n">Fecha</span>   
+<span class="mi">2019</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">33.1222</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">33.2598</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">33.3979</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">33.5321</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">33.6713</span>
+</pre>
+
+
+<p>Podemos ver que tenemos de cada mes el último día con su respectivo tipo de cambio.</p>
+<p>Si quisieramos conocer el tipo de cambio del 31 de agosto del 2019 podemos filtra con loc.</p>
+<pre class="code literal-block"><span></span><span class="n">tipo_cambio</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-08-31&#39;</span><span class="p">]</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>    <span class="mf">33.3979</span>
+<span class="n">Name</span><span class="p">:</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">31</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre>
+
+
+<p>O de un año específico, por ejemplo del 2013.</p>
+<pre class="code literal-block"><span></span><span class="n">tipo_cambio</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2013-01-31&#39;</span> <span class="p">:</span> <span class="s1">&#39;2013-12-31&#39;</span><span class="p">]</span>
+</pre>
+
+
+<pre class="code literal-block"><span></span><span class="n">Córdobas</span> <span class="n">por</span> <span class="n">USD</span>
+<span class="n">Fecha</span>   
+<span class="mi">2013</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">24.2257</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span>  <span class="mf">24.3165</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">24.4175</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">24.5156</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">24.6174</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">24.7163</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">24.8190</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">24.9220</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">25.0222</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">25.1261</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">30</span>  <span class="mf">25.2270</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>  <span class="mf">25.3318</span>
+</pre>
+
+
+<p>El intervalo se separa con <strong>:</strong>.</p>
+<p>Con un simple gráfico podriamos ver la evolución del tipo de cambio.</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tipo_cambio</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+
+
+<p><img alt="undefined" src="https://i.pinimg.com/originals/b6/9d/46/b69d4640de8839532ffd7dbb245033fe.png"></p>
+<p>Ya podemos dar por terminado este post.</p>
+<p><strong><em>Cualquier duda puede consultar a morales.economia@gmail.com</em></strong></p>

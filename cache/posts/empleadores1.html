@@ -1,0 +1,64 @@
+<p>Empezamos con nuestro primer post panorámico de la economía de Nicaragua, con los cuales queremos ofrecer algunas estadísticas obtenidas de las fuentes oficiales.</p>
+<p>Con la herramienta R y los datos de la Superintendencia de Bancos y de Otras Instituciones Financieras, he extraído la cantidad de empleados del sistema bancario.</p>
+<p>Importando el json del servicio web de la SIBOIF y procesándolo con R, hemos obtenido lo siguiente:</p>
+<!-- TEASER_END -->
+
+<h3>Empleados Permanentes</h3>
+<pre class="code literal-block"><span></span><span class="c1">## # A tibble: 7 x 4</span>
+<span class="c1">##   Institucion `2017-12-31` `2018-12-31` `2019-06-30`</span>
+<span class="c1">##                                 </span>
+<span class="c1">## 1 AVANZ                 NA          254          255</span>
+<span class="c1">## 2 BAC                 2596         2205         2087</span>
+<span class="c1">## 3 FICOHSA              529          614          587</span>
+<span class="c1">## 4 BANCENTRO           2211         1894         1844</span>
+<span class="c1">## 5 BANCORP              103          118           25</span>
+<span class="c1">## 6 BANPRO              2473         2297         2107</span>
+<span class="c1">## 7 BDF                 1034          922          518</span>
+</pre>
+
+
+<p>La tabla generada en R revela que la crisis sociopolítica que afectó al país desde abril 2018 ha provocado despidos masivos en los bancos. Bancorp y Ficohsa contrataron personal permanente entre finales del 2017 y diciembre 2018. Pero en el primer semestre del 2019 el Bancorp despidió a 93 trabajadores.</p>
+<p>Según los datos de la SIBOIF el BDF ha sido el banco que ha despedido hasta 404 trabajadores sólo en el primer semestre del 2019.</p>
+<iframe width="1000px" height="600px" src="https://fogadereportes.netlify.com/docs/p2.html" frameborder="0" allowfullscreen="" webkitallowfullscreen="" msallowfullscreen="">
+<p>
+Tu navegador no soporta esta vista, comunicarse con <a href="mailto:deybi.morales@fogade.gob.ni" class="email">deybi.morales@fogade.gob.ni</a>
+</p>
+</iframe>
+
+<h3>Empleados Temporales</h3>
+<pre class="code literal-block"><span></span><span class="c1">## # A tibble: 7 x 4</span>
+<span class="c1">##   Institucion `2017-12-31` `2018-12-31` `2019-06-30`</span>
+<span class="c1">##                                 </span>
+<span class="c1">## 1 AVANZ                 NA            0            0</span>
+<span class="c1">## 2 BAC                    0            0            0</span>
+<span class="c1">## 3 FICOHSA                0            0            0</span>
+<span class="c1">## 4 BANCENTRO              0            0            0</span>
+<span class="c1">## 5 BANCORP                4            4           24</span>
+<span class="c1">## 6 BANPRO                 5            3            0</span>
+<span class="c1">## 7 BDF                    1            5            3</span>
+</pre>
+
+
+<p>Los empleados temporales aumentaron en Bancorp, disminuyeron en BDF y Banpro.</p>
+<p>Ahora sumaremos los dos cuadros para obtener el total de empleados por bancos.</p>
+<h3>Empleados Totales</h3>
+<pre class="code literal-block"><span></span><span class="c1">##   Institucion 2017-12-31 2018-12-31 2019-06-30</span>
+<span class="c1">## 1       AVANZ         NA        254        255</span>
+<span class="c1">## 2         BAC       2596       2205       2087</span>
+<span class="c1">## 3     FICOHSA        529        614        587</span>
+<span class="c1">## 4   BANCENTRO       2211       1894       1844</span>
+<span class="c1">## 5     BANCORP        107        122         49</span>
+<span class="c1">## 6      BANPRO       2478       2300       2107</span>
+<span class="c1">## 7         BDF       1035        927        521</span>
+</pre>
+
+
+<p>Con la ayuda de Plotly podemos elaborar bellas gráficas interactivas:</p>
+<iframe width="1000px" height="600px" src="https://fogadereportes.netlify.com/docs/p1.html" frameborder="0" allowfullscreen="" webkitallowfullscreen="" msallowfullscreen="">
+<p>
+Tu navegador no soporta esta vista, comunicarse con <a href="mailto:deybi.morales@fogade.gob.ni" class="email">deybi.morales@fogade.gob.ni</a>
+</p>
+</iframe>
+
+<p>Solo Avanz ha mantenido casi constante el número de empleados contratando uno más con respecto a diciembre 2018. Pero Ficohsa ha sido el único banco que ha aumentado su planilla de empleados según los datos del periodo observado, 58 más con respecto a finales del 2017.</p>
+<p>En conclusión, sin tomar en cuenta a Avanz, el sistema bancario ha despedido a 1,761 trabajadores. Este nivel tan negativo puede ser causa del impacto financiero de la crisis sociopolítica que inició en el primer semestre del año 2018.</p>

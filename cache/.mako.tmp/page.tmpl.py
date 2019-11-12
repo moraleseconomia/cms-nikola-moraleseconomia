@@ -1,15 +1,15 @@
-# -*- coding:ascii -*-
+# -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1545254404.447096
+_modified_time = 1571687352.6766517
 _enable_loop = True
-_template_filename = 'c:/users/deybi.morales/appdata/local/conda/conda/envs/py36/lib/site-packages/nikola/data/themes/base/templates/page.tmpl'
+_template_filename = 'c:/users/deybi.morales/pictures/wpy64-3740/scripts/moraleseconomia/lib/site-packages/nikola/data/themes/base/templates/page.tmpl'
 _template_uri = 'page.tmpl'
-_source_encoding = 'ascii'
+_source_encoding = 'utf-8'
 _exports = []
 
 
@@ -37,6 +37,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "c:/users/deybi.morales/appdata/local/conda/conda/envs/py36/lib/site-packages/nikola/data/themes/base/templates/page.tmpl", "uri": "page.tmpl", "source_encoding": "ascii", "line_map": {"27": 0, "32": 1, "38": 32}}
+{"filename": "c:/users/deybi.morales/pictures/wpy64-3740/scripts/moraleseconomia/lib/site-packages/nikola/data/themes/base/templates/page.tmpl", "uri": "page.tmpl", "source_encoding": "utf-8", "line_map": {"27": 0, "32": 1, "38": 32}}
 __M_END_METADATA
 """
